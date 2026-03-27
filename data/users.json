@@ -1,0 +1,47 @@
+[
+  {
+    "id": "acc-1772549737554-176303120",
+    "username": "vladimirsnowflak",
+    "email": "vladimirsnowflak2@gmail.com",
+    "passwordHash": "$2b$12$PomaL1XxOIureIQs1sh.UuaDBuAfBFpXrIrYGat2hCcnBaFWMG7Ya",
+    "avatarUrl": "/uploads/1772553199039-671201778-miku.jpg",
+    "createdAt": "2026-03-03T14:55:37.554Z",
+    "updatedAt": "2026-03-19T15:58:27.564Z"
+  },
+  {
+    "id": "acc-1772550848418-196918084",
+    "username": "vladimirsnow",
+    "email": "serwer0822@gmail.com",
+    "passwordHash": "$2b$12$aBSPObynO9XHIqZTyF4A0e9S2.n1dINhNjeeyqriNLvMdk62jsBja",
+    "avatarUrl": "/uploads/1772553267168-610096186-ebd0993e4f526e1c5a44cf3971335f6a.jpg",
+    "createdAt": "2026-03-03T15:14:08.418Z",
+    "updatedAt": "2026-03-03T15:54:27.261Z"
+  },
+  {
+    "id": "acc-1773371630696-906982495",
+    "username": "хуила",
+    "email": "fenis.temnikov.2008@gmail.com",
+    "passwordHash": "$2b$12$gA3rK2/vezXppA8IjJNoAO6kiuClrLF7Dr0A5hqEEiclO.bAxdfsu",
+    "avatarUrl": "/uploads/1773371687892-666642759-photo_2026-03-02_14-54-08.jpg",
+    "createdAt": "2026-03-13T03:13:50.695Z",
+    "updatedAt": "2026-03-13T03:14:48.124Z"
+  },
+  {
+    "id": "acc-1773371646968-548632552",
+    "username": "vladimirsnowflak2",
+    "email": "vladimirsnowflak@gmail.com",
+    "passwordHash": "$2b$12$bqc5iJUtFH1KbaMaO6uIR..rC09RN2C1Smdc/T7bV7gZw/zxn2h..",
+    "avatarUrl": "/uploads/1773371684481-132983970-image.png",
+    "createdAt": "2026-03-13T03:14:06.968Z",
+    "updatedAt": "2026-03-13T03:14:44.493Z"
+  },
+  {
+    "id": "acc-1773372380053-526282619",
+    "username": "roman",
+    "email": "novvika1986@gmail.com",
+    "passwordHash": "$2b$12$6Da5DSjhhsyc/fwrxIHyuOiQZrFwfIel07tM9oLDuXRN.oT93Q/v6",
+    "avatarUrl": "",
+    "createdAt": "2026-03-13T03:26:20.053Z",
+    "updatedAt": "2026-03-13T03:26:20.053Z"
+  }
+]

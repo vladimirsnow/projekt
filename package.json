@@ -1,0 +1,29 @@
+{
+  "name": "hexlet-messenger",
+  "version": "1.0.0",
+  "description": "Hexlet Messenger - realtime web messenger with chats, channels, groups, media and calls",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "messenger",
+    "socket.io",
+    "webrtc",
+    "hexlet"
+  ],
+  "author": "vldimirsnoflak",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "multer": "^2.1.0",
+    "nodemailer": "^8.0.1",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "socket.io-client": "^4.8.3"
+  }
+}

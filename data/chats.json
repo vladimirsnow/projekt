@@ -1,0 +1,231 @@
+{
+  "chats": [
+    {
+      "id": "channel-general",
+      "type": "channel",
+      "title": "Общий канал",
+      "isPublic": true,
+      "inviteCode": "",
+      "createdBy": "system",
+      "createdAt": "2026-03-17T04:41:50.512Z",
+      "updatedAt": "2026-03-17T04:41:50.512Z",
+      "members": [
+        "system"
+      ],
+      "admins": [
+        "system"
+      ],
+      "lastMessage": null
+    },
+    {
+      "id": "channel-news",
+      "type": "channel",
+      "title": "Новости проекта",
+      "isPublic": true,
+      "inviteCode": "",
+      "createdBy": "system",
+      "createdAt": "2026-03-17T04:41:50.512Z",
+      "updatedAt": "2026-03-17T04:41:50.512Z",
+      "members": [
+        "system"
+      ],
+      "admins": [
+        "system"
+      ],
+      "lastMessage": null
+    },
+    {
+      "id": "private-1773722550306-752017574",
+      "type": "private",
+      "title": "",
+      "isPublic": false,
+      "inviteCode": "",
+      "createdBy": "acc-1772549737554-176303120",
+      "createdAt": "2026-03-17T04:42:30.306Z",
+      "updatedAt": "2026-03-17T04:45:18.830Z",
+      "members": [
+        "acc-1772549737554-176303120",
+        "acc-1773371630696-906982495"
+      ],
+      "admins": [
+        "acc-1772549737554-176303120"
+      ],
+      "lastMessage": {
+        "senderId": "acc-1773371630696-906982495",
+        "senderName": "хуила",
+        "senderAvatarUrl": "/uploads/1773371687892-666642759-photo_2026-03-02_14-54-08.jpg",
+        "text": "Файлы: 8",
+        "createdAt": "2026-03-17T04:45:18.830Z"
+      }
+    },
+    {
+      "id": "channel-1773934035221-819278077",
+      "type": "channel",
+      "title": "ddffdgggdf",
+      "isPublic": true,
+      "inviteCode": "",
+      "createdBy": "acc-1772549737554-176303120",
+      "createdAt": "2026-03-19T15:27:15.221Z",
+      "updatedAt": "2026-03-22T13:27:41.421Z",
+      "members": [
+        "acc-1772549737554-176303120"
+      ],
+      "admins": [
+        "acc-1772549737554-176303120"
+      ],
+      "lastMessage": {
+        "senderId": "acc-1772549737554-176303120",
+        "senderName": "vladimirsnowflak",
+        "senderAvatarUrl": "/uploads/1772553199039-671201778-miku.jpg",
+        "text": "sdfdfdfgdfgdfg",
+        "createdAt": "2026-03-22T13:27:41.421Z"
+      }
+    }
+  ],
+  "messagesByChatId": {
+    "channel-general": [],
+    "channel-news": [],
+    "private-1773722550306-752017574": [
+      {
+        "id": "msg-1773722553929-349741393",
+        "chatId": "private-1773722550306-752017574",
+        "senderId": "acc-1772549737554-176303120",
+        "senderName": "vladimirsnowflak",
+        "senderAvatarUrl": "/uploads/1772553199039-671201778-miku.jpg",
+        "text": "пенис/",
+        "attachments": [],
+        "reactions": {},
+        "createdAt": "2026-03-17T04:42:33.929Z"
+      },
+      {
+        "id": "msg-1773722556228-975259110",
+        "chatId": "private-1773722550306-752017574",
+        "senderId": "acc-1772549737554-176303120",
+        "senderName": "vladimirsnowflak",
+        "senderAvatarUrl": "/uploads/1772553199039-671201778-miku.jpg",
+        "text": "покажи",
+        "attachments": [],
+        "reactions": {},
+        "createdAt": "2026-03-17T04:42:36.228Z"
+      },
+      {
+        "id": "msg-1773722559225-72765552",
+        "chatId": "private-1773722550306-752017574",
+        "senderId": "acc-1772549737554-176303120",
+        "senderName": "vladimirsnowflak",
+        "senderAvatarUrl": "/uploads/1772553199039-671201778-miku.jpg",
+        "text": "срочно",
+        "attachments": [],
+        "reactions": {},
+        "createdAt": "2026-03-17T04:42:39.225Z"
+      },
+      {
+        "id": "msg-1773722664965-766605130",
+        "chatId": "private-1773722550306-752017574",
+        "senderId": "acc-1773371630696-906982495",
+        "senderName": "хуила",
+        "senderAvatarUrl": "/uploads/1773371687892-666642759-photo_2026-03-02_14-54-08.jpg",
+        "text": "",
+        "attachments": [
+          {
+            "url": "/uploads/1773722662837-219151833-TLauncher.zip",
+            "name": "TLauncher.zip",
+            "mimeType": "application/zip",
+            "size": 9114965,
+            "kind": "file"
+          }
+        ],
+        "reactions": {},
+        "createdAt": "2026-03-17T04:44:24.965Z"
+      },
+      {
+        "id": "msg-1773722718830-115618244",
+        "chatId": "private-1773722550306-752017574",
+        "senderId": "acc-1773371630696-906982495",
+        "senderName": "хуила",
+        "senderAvatarUrl": "/uploads/1773371687892-666642759-photo_2026-03-02_14-54-08.jpg",
+        "text": "",
+        "attachments": [
+          {
+            "url": "/uploads/1773722712176-224610668-__20260301_113534.webm",
+            "name": "ÐÐ°Ð¿Ð¸ÑÑ ÑÐºÑÐ°Ð½Ð°_20260301_113534.webm",
+            "mimeType": "video/webm",
+            "size": 306590,
+            "kind": "video"
+          },
+          {
+            "url": "/uploads/1773722712221-744941053-__20260301_124043.webm",
+            "name": "ÐÐ°Ð¿Ð¸ÑÑ ÑÐºÑÐ°Ð½Ð°_20260301_124043.webm",
+            "mimeType": "video/webm",
+            "size": 2031790,
+            "kind": "video"
+          },
+          {
+            "url": "/uploads/1773722712218-805029715-__20260302_153524.webm",
+            "name": "ÐÐ°Ð¿Ð¸ÑÑ ÑÐºÑÐ°Ð½Ð°_20260302_153524.webm",
+            "mimeType": "video/webm",
+            "size": 622602,
+            "kind": "video"
+          },
+          {
+            "url": "/uploads/1773722712222-250725666-__20260302_182603.webm",
+            "name": "ÐÐ°Ð¿Ð¸ÑÑ ÑÐºÑÐ°Ð½Ð°_20260302_182603.webm",
+            "mimeType": "video/webm",
+            "size": 912053,
+            "kind": "video"
+          },
+          {
+            "url": "/uploads/1773722712219-429916810-__20260304_212023.webm",
+            "name": "ÐÐ°Ð¿Ð¸ÑÑ ÑÐºÑÐ°Ð½Ð°_20260304_212023.webm",
+            "mimeType": "video/webm",
+            "size": 1763739,
+            "kind": "video"
+          },
+          {
+            "url": "/uploads/1773722712220-667017464-__20260305_182332.webm",
+            "name": "ÐÐ°Ð¿Ð¸ÑÑ ÑÐºÑÐ°Ð½Ð°_20260305_182332.webm",
+            "mimeType": "video/webm",
+            "size": 3647884,
+            "kind": "video"
+          },
+          {
+            "url": "/uploads/1773722712909-266778317-__20260310_232930.webm",
+            "name": "ÐÐ°Ð¿Ð¸ÑÑ ÑÐºÑÐ°Ð½Ð°_20260310_232930.webm",
+            "mimeType": "video/webm",
+            "size": 1199694,
+            "kind": "video"
+          },
+          {
+            "url": "/uploads/1773722713627-473222552-__20260311_234132.webm",
+            "name": "ÐÐ°Ð¿Ð¸ÑÑ ÑÐºÑÐ°Ð½Ð°_20260311_234132.webm",
+            "mimeType": "video/webm",
+            "size": 218777,
+            "kind": "video"
+          }
+        ],
+        "reactions": {},
+        "createdAt": "2026-03-17T04:45:18.830Z"
+      }
+    ],
+    "channel-1773934035221-819278077": [
+      {
+        "id": "msg-1774186061421-591611770",
+        "chatId": "channel-1773934035221-819278077",
+        "senderId": "acc-1772549737554-176303120",
+        "senderName": "vladimirsnowflak",
+        "senderAvatarUrl": "/uploads/1772553199039-671201778-miku.jpg",
+        "text": "sdfdfdfgdfgdfg",
+        "attachments": [],
+        "reactions": {
+          "😡": [
+            "acc-1772549737554-176303120"
+          ],
+          "🎉": [
+            "acc-1772549737554-176303120"
+          ]
+        },
+        "createdAt": "2026-03-22T13:27:41.421Z"
+      }
+    ]
+  }
+}

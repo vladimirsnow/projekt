@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hexlet Messenger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="app-shell">
+      <aside class="sidebar">
+        <header class="sidebar-header">
+          <div class="sidebar-header-top">
+            <h1>Hexlet Messenger</h1>
+            <button
+              id="mobile-sidebar-close"
+              class="mobile-sidebar-close"
+              type="button"
+              aria-label="Закрыть список чатов"
+            >
+              ✕
+            </button>
+          </div>
+          <div class="current-user-row">
+            <img id="current-user-avatar" class="current-user-avatar" src="" alt="Аватар пользователя" hidden />
+            <div class="current-user-meta">
+              <p id="current-user-name">Не авторизован</p>
+            </div>
+          </div>
+          <div class="account-controls">
+            <button class="button button-secondary" id="account-settings-button" type="button">Аккаунт</button>
+            <button class="button button-danger" id="logout-button" type="button">Выйти</button>
+          </div>
+        </header>
+
+        <section class="sidebar-actions" aria-label="Создание чатов">
+          <div class="create-menu" id="create-menu">
+            <button
+              class="button button-primary create-menu-toggle"
+              id="create-menu-toggle"
+              type="button"
+              aria-haspopup="menu"
+              aria-expanded="false"
+            >
+              Создать
+            </button>
+            <div class="create-menu-panel" id="create-menu-panel" role="menu" hidden>
+              <button class="create-menu-item" id="new-private-chat" type="button" role="menuitem">Новый личный чат</button>
+              <button class="create-menu-item" id="new-group-chat" type="button" role="menuitem">Новая группа</button>
+              <button class="create-menu-item" id="new-channel-chat" type="button" role="menuitem">Новый канал</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="sidebar-search">
+          <label for="chat-search">Поиск по чатам</label>
+          <input id="chat-search" type="search" placeholder="Название, канал, группа..." autocomplete="off" />
+        </section>
+
+        <section class="chat-list-section" aria-label="Список чатов">
+          <div class="section-title-row">
+            <h2>Чаты</h2>
+            <span id="chat-count">0</span>
+          </div>
+          <ul id="chat-list" class="chat-list"></ul>
+        </section>
+      </aside>
+
+      <main class="chat-panel">
+        <header class="chat-header">
+          <div>
+            <h2 id="current-chat-title">Выбери чат слева</h2>
+            <p id="current-chat-meta">Личные, групповые и публичные каналы с единым потоком сообщений.</p>
+          </div>
+          <div class="chat-actions">
+            <button
+              class="icon-button mobile-sidebar-toggle"
+              id="mobile-sidebar-toggle"
+              type="button"
+              aria-label="Открыть список чатов"
+              aria-expanded="false"
+            >
+              ☰
+            </button>
+            <button class="icon-button" id="audio-call-button" type="button" disabled title="Аудиозвонок">🔊</button>
+            <button class="icon-button" id="video-call-button" type="button" disabled title="Видеозвонок">🎥</button>
+            <button class="icon-button" id="chat-manage-button" type="button" disabled title="Управление чатом">⚙</button>
+          </div>
+        </header>
+
+        <section id="message-feed" class="message-feed" aria-live="polite">
+          <div id="messages-empty" class="messages-empty">
+            Выбери или создай чат, чтобы начать общение в реальном времени.
+          </div>
+          <ul id="messages-list" class="messages-list"></ul>
+        </section>
+
+        <div id="typing-indicator" class="typing-indicator" hidden></div>
+
+        <section class="composer">
+          <div id="composer-preview" class="composer-preview"></div>
+          <div class="composer-controls">
+            <input
+              id="message-input"
+              type="text"
+              placeholder="Напишите сообщение..."
+              autocomplete="off"
+              disabled
+            />
+            <input
+              id="file-input"
+              type="file"
+              multiple
+              accept="image/*,video/*,audio/*,.pdf,.doc,.docx,.txt,.zip"
+              hidden
+            />
+            <button
+              class="button icon-action"
+              id="attach-button"
+              type="button"
+              disabled
+              title="Прикрепить файл"
+            >
+              📎
+            </button>
+            <button class="button button-primary" id="send-button" type="button" disabled>Отправить</button>
+          </div>
+          <button class="button button-primary composer-subscribe-button" id="channel-subscribe-inline" type="button" hidden>
+            Подписаться
+          </button>
+        </section>
+      </main>
+    </div>
+
+    <button
+      id="sidebar-backdrop"
+      class="sidebar-backdrop"
+      type="button"
+      hidden
+      aria-label="Закрыть список чатов"
+    ></button>
+
+    <div id="login-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+      <div class="modal-card auth-card">
+        <h2 id="auth-title">Hexlet Messenger</h2>
+        <p>Создай аккаунт или войди по нику и паролю.</p>
+
+        <div class="auth-tabs" role="tablist" aria-label="Авторизация">
+          <button class="auth-tab" id="auth-tab-login" type="button" data-view="login">Вход</button>
+          <button class="auth-tab" id="auth-tab-register" type="button" data-view="register">Регистрация</button>
+        </div>
+
+        <form id="login-form" class="auth-form" novalidate>
+          <label for="login-username">Ник</label>
+          <input id="login-username" name="username" type="text" maxlength="24" autocomplete="username" />
+
+          <label for="login-password">Пароль</label>
+          <input
+            id="login-password"
+            name="password"
+            type="password"
+            maxlength="72"
+            autocomplete="current-password"
+          />
+          <button class="auth-link-button" id="forgot-password-link" type="button">Забыли пароль?</button>
+
+          <button class="button button-primary" type="submit">Войти</button>
+        </form>
+
+        <form id="register-form" class="auth-form" hidden novalidate>
+          <label for="register-username">Ник</label>
+          <input id="register-username" name="username" type="text" maxlength="24" autocomplete="username" />
+
+          <label for="register-email">Email</label>
+          <input id="register-email" name="email" type="email" maxlength="120" autocomplete="email" />
+
+          <label for="register-password">Пароль</label>
+          <input
+            id="register-password"
+            name="password"
+            type="password"
+            maxlength="72"
+            autocomplete="new-password"
+          />
+
+          <label for="register-password-repeat">Повтор пароля</label>
+          <input
+            id="register-password-repeat"
+            name="passwordRepeat"
+            type="password"
+            maxlength="72"
+            autocomplete="new-password"
+          />
+
+          <button class="button button-primary" type="submit">Создать аккаунт</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="recover-modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="recover-title">
+      <div class="modal-card auth-card">
+        <h2 id="recover-title">Восстановление пароля</h2>
+        <p>Укажи email, и мы отправим письмо со ссылкой и кодом для смены пароля.</p>
+
+        <form id="recover-request-form" class="auth-form" novalidate>
+          <label for="recover-email">Email</label>
+          <input id="recover-email" name="email" type="email" maxlength="120" autocomplete="email" />
+          <button class="button button-secondary" type="submit">Отправить письмо</button>
+        </form>
+
+        <button class="auth-link-button" id="recover-have-code-button" type="button">У меня уже есть код</button>
+
+        <form id="recover-reset-form" class="auth-form" hidden novalidate>
+          <label for="reset-email">Email</label>
+          <input id="reset-email" name="email" type="email" maxlength="120" autocomplete="email" />
+
+          <label for="reset-code">Код из письма</label>
+          <input id="reset-code" name="code" type="text" maxlength="6" inputmode="numeric" />
+
+          <label for="reset-password">Новый пароль</label>
+          <input
+            id="reset-password"
+            name="newPassword"
+            type="password"
+            maxlength="72"
+            autocomplete="new-password"
+          />
+
+          <button class="button button-primary" type="submit">Сменить пароль</button>
+        </form>
+
+        <div class="modal-actions">
+          <button class="button button-secondary" id="recover-close" type="button">Закрыть</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="account-modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="account-title">
+      <div class="modal-card auth-card">
+        <h2 id="account-title">Настройки аккаунта</h2>
+        <p>Выбери действие для изменения профиля.</p>
+
+        <div class="account-actions-tabs">
+          <button class="account-action-button" id="account-action-profile" type="button">Сменить ник/email</button>
+          <button class="account-action-button" id="account-action-password" type="button">Сменить пароль</button>
+          <button class="account-action-button" id="account-action-avatar" type="button">Сменить аватар</button>
+        </div>
+
+        <form id="account-profile-form" class="auth-form" novalidate>
+          <label for="account-username">Ник</label>
+          <input id="account-username" name="username" type="text" maxlength="24" autocomplete="username" />
+
+          <label for="account-email">Email</label>
+          <input id="account-email" name="email" type="email" maxlength="120" autocomplete="email" />
+
+          <label for="account-profile-password">Текущий пароль</label>
+          <input
+            id="account-profile-password"
+            name="currentPassword"
+            type="password"
+            maxlength="72"
+            autocomplete="current-password"
+          />
+
+          <div class="modal-actions">
+            <button class="button button-primary" type="submit">Сохранить</button>
+          </div>
+        </form>
+
+        <form id="account-password-form" class="auth-form" hidden novalidate>
+          <label for="account-password-current">Текущий пароль</label>
+          <input
+            id="account-password-current"
+            name="currentPassword"
+            type="password"
+            maxlength="72"
+            autocomplete="current-password"
+          />
+
+          <label for="account-password-new">Новый пароль</label>
+          <input
+            id="account-password-new"
+            name="newPassword"
+            type="password"
+            maxlength="72"
+            autocomplete="new-password"
+          />
+
+          <label for="account-password-repeat">Повтори новый пароль</label>
+          <input
+            id="account-password-repeat"
+            name="newPasswordRepeat"
+            type="password"
+            maxlength="72"
+            autocomplete="new-password"
+          />
+
+          <div class="modal-actions">
+            <button class="button button-primary" type="submit">Обновить пароль</button>
+          </div>
+        </form>
+
+        <form id="account-avatar-form" class="auth-form" hidden novalidate>
+          <div class="account-avatar-preview-wrap">
+            <img id="account-avatar-preview" class="account-avatar-preview" src="" alt="Предпросмотр аватара" hidden />
+            <div id="account-avatar-placeholder" class="account-avatar-placeholder">Нет аватара</div>
+          </div>
+
+          <input id="account-avatar-file" type="file" accept="image/*" hidden />
+          <button class="button button-secondary" id="account-avatar-pick" type="button">Выбрать аватар</button>
+
+          <div class="modal-actions">
+            <button class="button button-primary" type="submit">Сохранить аватар</button>
+            <button class="button button-secondary" id="account-avatar-remove" type="button">Удалить аватар</button>
+          </div>
+        </form>
+
+        <div class="modal-actions">
+          <button class="button button-secondary" id="account-cancel" type="button">Закрыть</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="create-chat-modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="create-chat-title">
+      <div class="modal-card">
+        <h2 id="create-chat-title">Создать чат</h2>
+        <p id="create-chat-description">Выбери тип и заполни поля.</p>
+
+        <label for="create-chat-type">Тип</label>
+        <select id="create-chat-type">
+          <option value="private">Личный чат</option>
+          <option value="group">Групповой чат</option>
+          <option value="channel">Канал</option>
+        </select>
+
+        <div id="create-chat-target-wrap">
+          <label for="create-chat-target-username">Ник пользователя</label>
+          <input id="create-chat-target-username" type="text" maxlength="24" placeholder="Например: alex" />
+          <div id="create-chat-user-results" class="user-search-results" hidden></div>
+        </div>
+
+        <div id="create-chat-title-wrap" hidden>
+          <label for="create-chat-name">Название</label>
+          <input id="create-chat-name" type="text" maxlength="50" placeholder="Название чата" />
+        </div>
+
+        <div id="create-chat-members-wrap" hidden>
+          <label for="create-chat-members-input">Участники (ники через запятую)</label>
+          <textarea
+            id="create-chat-members-input"
+            rows="3"
+            placeholder="maria, ivan, petrova"
+          ></textarea>
+        </div>
+
+        <div id="create-chat-channel-visibility-wrap" hidden>
+          <label for="create-chat-channel-visibility">Доступ к каналу</label>
+          <select id="create-chat-channel-visibility">
+            <option value="public">Публичный (находится по названию)</option>
+            <option value="private">Приватный (только по приглашению)</option>
+          </select>
+        </div>
+
+        <div class="modal-actions">
+          <button class="button button-primary" id="create-chat-confirm" type="button">Создать</button>
+          <button class="button button-secondary" id="create-chat-cancel" type="button">Отмена</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="manage-chat-modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="manage-chat-title">
+      <div class="modal-card">
+        <h2 id="manage-chat-title">Управление чатом</h2>
+        <p id="manage-chat-description">Только админы могут управлять участниками.</p>
+
+        <ul id="manage-chat-members" class="manage-chat-members"></ul>
+
+        <div class="modal-actions">
+          <button class="button button-secondary" id="manage-chat-close" type="button">Закрыть</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="incoming-call" class="incoming-call" hidden>
+      <p id="incoming-call-text">Входящий звонок</p>
+      <div class="incoming-actions">
+        <button class="button button-primary" id="accept-call" type="button">Принять</button>
+        <button class="button button-danger" id="decline-call" type="button">Отклонить</button>
+      </div>
+    </div>
+
+    <section id="call-panel" class="call-panel" hidden>
+      <header class="call-panel-header">
+        <div>
+          <h3 id="call-chat-title">Активный звонок</h3>
+          <p id="call-status">Подключение...</p>
+        </div>
+        <button class="button button-danger" id="leave-call" type="button">Завершить</button>
+      </header>
+
+      <div class="call-videos">
+        <div class="local-video-wrap">
+          <p>Вы</p>
+          <video id="local-video" autoplay muted playsinline></video>
+        </div>
+        <div id="remote-videos" class="remote-videos"></div>
+      </div>
+    </section>
+
+    <div id="media-modal" class="media-modal" hidden role="dialog" aria-modal="true" aria-label="Просмотр медиа">
+      <button class="media-modal-backdrop" id="media-modal-backdrop" type="button" aria-label="Закрыть просмотр"></button>
+      <div class="media-modal-card" role="document">
+        <div class="media-modal-toolbar">
+          <p id="media-modal-name" class="media-modal-name"></p>
+          <div class="media-modal-actions">
+            <a id="media-modal-download" class="media-modal-download" href="#" target="_blank" rel="noopener noreferrer">
+              Скачать
+            </a>
+            <button class="media-modal-close" id="media-modal-close" type="button" aria-label="Закрыть">
+              ✕
+            </button>
+          </div>
+        </div>
+        <div id="media-modal-content" class="media-modal-content"></div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast" hidden></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="/scripts/main.js"></script>
+  </body>
+</html>
